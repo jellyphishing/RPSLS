@@ -6,7 +6,29 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    internal class Class1
+    internal class HumanPlayer : Player
+    //Member variables (HAS A)
     {
+ 
+     //Constructor
+
+
+        public HumanPlayer(string name)
+            :base(name)
+        {
+            
+        }
+          //Methods (CAN DO)
+        public override void ChooseGesture()
+        {
+            Console.WriteLine( "Press 0 for rock, press 1 for paper");
+            int chosenNumber = int.Parse(Console.ReadLine());
+            chosenGesture = gestures[chosenNumber];
+           
+        }
+
+
+
+        
     }
 }
