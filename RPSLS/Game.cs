@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,14 +10,14 @@ namespace RPSLS
     internal class Game
     {
         //Member Variabes (HAS A)
-        public Player playerOne;
-        public Player playerTwo;
+        public Player PlayerOne;
+        public Player PlayerTwo;
 
         //Constructor
         public Game()
         {
             
-                }
+        }
         public void WelcomeMessage()
         {
             Console.WriteLine("Welcome to RPSLS, the funnest game in the Galaxy! Here's the lowdown on the rules:\n" +
@@ -45,7 +46,14 @@ namespace RPSLS
 
         public void CreatePlayerObjects(int numberOfHumanPlayers)
         {
-            if (numberOfHumanPlayers == 1) ;
+            if (numberOfHumanPlayers == 1)
+            {
+                Console.WriteLine("What is your name?");
+                string userOneName = Console.ReadLine();
+                PlayerOne = new HumanPlayer(userOneName);
+                PlayerTwo = new ComputerPlayer("BotBot");
+            }
+            else { }
         }
 
         public void CompareGestures()
@@ -55,13 +63,27 @@ namespace RPSLS
 
         public void DisplayGameWinner()
         {
-
+            if(PlayerOne.Score ==2)
+            {
+                Console.WriteLine($"{PlayerOne.Name} is the winner!");
+            }
+            else if(PlayerTwo.Score ==2) 
+            {
+                Console.WriteLine($"{PlayerTwo.Name} is the winner!");
+            }
         }
 
         public void RunGame()
         {
             WelcomeMessage();
+            //ChooseNumberOfHumanPlayers();
             int numberOfHumanPlayers = ChooseNumberOfHumanPlayers();
+            CreatePlayerObjects(numberOfHumanPlayers);
+            CompareGestures();
+            DisplayGameWinner();
+
+
+           
             //    CreatePlayerObjects(numberOfHumanPlayers);
             //DisplayGameWinner();
             //}

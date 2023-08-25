@@ -23,7 +23,7 @@ namespace RPSLS
         {
             Console.WriteLine( "Press 0 for rock, press 1 for paper");
             int chosenNumber = int.Parse(Console.ReadLine());
-            chosenGesture = gestures[chosenNumber];
+            ChosenGesture = gestures[chosenNumber];
            
         }
 
