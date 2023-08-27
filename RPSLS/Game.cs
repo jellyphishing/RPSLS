@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -27,6 +28,8 @@ namespace RPSLS
                 "Scissors decapitates Lizard.EEK!\n" +
                 "Paper covers Rock.\n" +
                 "Paper disproves Spock.\n" +
+                "Lizard poisons Spock.\n" +
+                "Lizard eats Paper.\n" +
                 "Spock smashes Scissors.\n" +
                 "Spock vaporizes Rock! YEESSSS!\n" +
                 "Game will be best of 3 and the winner will take the title of Best In Universe.\n" +
@@ -41,7 +44,7 @@ namespace RPSLS
             string userInput = Console.ReadLine();
             int covertedUserInput = int.Parse(userInput);
             return covertedUserInput;
-            //return 0;  //(this 0 is a place holder) (Console.ReadLine() "Choose number of players, 1 or 2Write Line
+            
         }
 
         public void CreatePlayerObjects(int numberOfHumanPlayers)
@@ -53,30 +56,138 @@ namespace RPSLS
                 PlayerOne = new HumanPlayer(userOneName);
                 PlayerTwo = new ComputerPlayer("BotBot");
             }
-            else { }
+            else
+            
+            {
+                Console.WriteLine("What is your name?")
+                ;
+                string userTwoName = Console.ReadLine();
+                PlayerTwo = new HumanPlayer(userTwoName);
+
+            }
         }
 
         public void CompareGestures()
+
         {
+            if (PlayerOne.ChosenGesture == PlayerTwo.ChosenGesture)
+            {
+                Console.WriteLine("Tied! Try again!");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Rock" && PlayerTwo.ChosenGesture == "Paper")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Rock" && PlayerTwo.ChosenGesture == "Scissors")
+            {
+                Console.WriteLine($"{PlayerOne.Name} wins the round1");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Rock" && PlayerTwo.ChosenGesture == "Lizard")
+            {
+                Console.WriteLine($"{PlayerOne.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Rock" && PlayerTwo.ChosenGesture == "Spock")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");
+            }
+
+            else if (PlayerTwo.ChosenGesture == "Paper" && PlayerTwo.ChosenGesture == "Rock")
+            {
+                Console.WriteLine($"{PlayerOne.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Paper" && PlayerTwo.ChosenGesture == "Scissors")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Paper" && PlayerTwo.ChosenGesture == "Lizard")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Paper" && PlayerTwo.ChosenGesture == "Spock")
+            {
+                Console.WriteLine($"{PlayerOne.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Scissors" && PlayerTwo.ChosenGesture == "Rock")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Scissors" && PlayerTwo.ChosenGesture == "Paper")
+            {
+                Console.WriteLine($"{PlayerOne.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Scissors" && PlayerTwo.ChosenGesture == "Lizard")
+            {
+                Console.WriteLine($"{PlayerOne.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Scissors" && PlayerTwo.ChosenGesture == "Spock")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Lizard" && PlayerTwo.ChosenGesture == "Rock")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Lizard" && PlayerTwo.ChosenGesture == "Paper")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");
+            }
+            else if (PlayerOne.ChosenGesture == "Lizard" && PlayerTwo.ChosenGesture == "Scissors")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");
+            }
+            else if (PlayerOne.ChosenGesture == "Lizard" && PlayerTwo.ChosenGesture == "Spock")
+            {
+                Console.WriteLine($"{PlayerOne.Name} wins the round.");
+            }
+            else if (PlayerOne.ChosenGesture == "Spock" && PlayerTwo.ChosenGesture == "Rock")
+            {
+                Console.WriteLine($"{PlayerOne.Name} wins the round.");
+            }
+            else if (PlayerOne.ChosenGesture == "Spock" && PlayerTwo.ChosenGesture == "Paper")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Spock" && PlayerTwo.ChosenGesture == "Scissors")
+            {
+                Console.WriteLine($"{PlayerOne.Name} wins the round.");
+            }
+
+            else if (PlayerOne.ChosenGesture == "Spock" && PlayerTwo.ChosenGesture == "Lizard")
+            {
+                Console.WriteLine($"{PlayerTwo.Name} wins the round.");            }
 
         }
 
-        public void DisplayGameWinner()
+                 public void DisplayGameWinner()
         {
             if(PlayerOne.Score ==2)
             {
-                Console.WriteLine($"{PlayerOne.Name} is the winner!");
+                Console.WriteLine($"{PlayerOne.Name} is the winner! Congrats {PlayerOne.Name}");
             }
-            else if(PlayerTwo.Score ==2) 
+            else
             {
-                Console.WriteLine($"{PlayerTwo.Name} is the winner!");
+                Console.WriteLine($"{PlayerTwo.Name} is the winner! Congrats {PlayerTwo.Name}!");
             }
+
         }
 
         public void RunGame()
         {
             WelcomeMessage();
-            //ChooseNumberOfHumanPlayers();
             int numberOfHumanPlayers = ChooseNumberOfHumanPlayers();
             CreatePlayerObjects(numberOfHumanPlayers);
             CompareGestures();
@@ -84,9 +195,6 @@ namespace RPSLS
 
 
            
-            //    CreatePlayerObjects(numberOfHumanPlayers);
-            //DisplayGameWinner();
-            //}
         }
     }
 }
