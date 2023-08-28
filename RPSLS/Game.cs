@@ -39,10 +39,15 @@ namespace RPSLS
         public int ChooseNumberOfHumanPlayers()
 
         {
-            string numberOfPlayers;
-            Console.WriteLine("Choose number of players, 1 or 2.");
-            string userInput = Console.ReadLine();
-            int covertedUserInput = int.Parse(userInput);
+            int covertedUserInput = 0;
+            while (covertedUserInput < 1 || covertedUserInput > 3)
+            {
+                Console.WriteLine("Choose number of players, 1 or 2.");
+                string userInput = Console.ReadLine();
+                covertedUserInput = int.Parse(userInput);
+            }
+           
+            
             return covertedUserInput;
             
         }
@@ -56,14 +61,24 @@ namespace RPSLS
                 PlayerOne = new HumanPlayer(userOneName);
                 PlayerTwo = new ComputerPlayer("BotBot");
             }
-            else
+            else if (numberOfHumanPlayers == 2) 
             
             {
-                Console.WriteLine("What is your name?")
-                ;
+                Console.WriteLine("Player 1, what is your name?");
+                string userOneName = Console.ReadLine();
+                PlayerOne = new HumanPlayer(userOneName);
+
+
+                Console.WriteLine("Player 2, what is your name?");                               
                 string userTwoName = Console.ReadLine();
                 PlayerTwo = new HumanPlayer(userTwoName);
 
+            }
+            else
+            {
+                Console.WriteLine("You entered something incorrect...Now you get 2 computer players");
+                PlayerOne = new ComputerPlayer("BotBot");
+                PlayerTwo = new ComputerPlayer("Botbot2");
             }
         }
 
