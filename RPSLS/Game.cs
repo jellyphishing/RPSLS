@@ -218,7 +218,7 @@ namespace RPSLS
 
                  public void DisplayGameWinner()
         {
-                    if(PlayerOne.Score ==2)
+                    if(PlayerOne.Score == 3)
                     {
                      Console.WriteLine($"{PlayerOne.Name} is the winner! Congrats {PlayerOne.Name}");
                      }

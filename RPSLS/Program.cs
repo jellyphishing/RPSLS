@@ -6,7 +6,7 @@
         {
 
 
-            Console.WriteLine("Example");
+            Console.WriteLine("Greetings Earthlings!");
             Game game = new Game();
             game.RunGame();
         }
