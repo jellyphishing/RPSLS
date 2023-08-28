@@ -17,7 +17,7 @@ namespace RPSLS
 
         public override void ChooseGesture()
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

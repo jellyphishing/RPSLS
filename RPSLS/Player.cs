@@ -17,10 +17,10 @@ namespace RPSLS
         //Constructor
         public Player(string name)
         {
-            this.name = name;
-            gestures = new List<string> {"rock", "paper", "scissors", "lizard", "Spock" };
-            chosenGesture = "";
-            score = 0;
+            this.Name = name;
+            Gestures = new List<string> {"Rock", "Paper", "Scissors", "Lizard", "Spock" };
+            ChosenGesture = "";
+            Score = 0;
         }
 
         //Member Methods (CAN DO)

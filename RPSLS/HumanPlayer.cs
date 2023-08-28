@@ -13,17 +13,17 @@ namespace RPSLS
      //Constructor
 
 
-        public HumanPlayer(string name)
+        public HumanPlayer(string name) //finished
             :base(name)
         {
             
         }
           //Methods (CAN DO)
-        public override void ChooseGesture()
+        public override void ChooseGesture() //finished
         {
-            Console.WriteLine( "Press 0 for rock, press 1 for paper, press 2 for scissors, press 3 for lizard, press 4 for Spock.");
+            Console.WriteLine( "Press 0 for Rock, press 1 for Paper, press 2 for Scissors, press 3 for Lizard, press 4 for Spock.");
             int chosenNumber = int.Parse(Console.ReadLine());
-            ChosenGesture = gestures[chosenNumber];
+            ChosenGesture = Gestures[chosenNumber];
            
         }
 
