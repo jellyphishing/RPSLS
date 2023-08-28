@@ -12,12 +12,23 @@ namespace RPSLS
         public ComputerPlayer(string name)
            : base(name)
         {
+            this.Name = name;
+            Random rand;
 
+
+            
         }
-
+        
+                                           
+              
+    
         public override void ChooseGesture()
         {
-           
+            Random rand = new Random();
+            int chosenNumber = rand.Next(0, 4);
+            ChosenGesture = Gestures[chosenNumber];
+            
         }
     }
 }
+
